@@ -51,6 +51,7 @@ class Plant(db.Model):
     scientific_name = Column(String)
     is_poisonous = Column(Boolean)
     primary_color = Column(String)
+    state=Column(String,nullable=False)
 
 
 ###################################################################################################################
