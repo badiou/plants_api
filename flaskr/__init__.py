@@ -18,7 +18,8 @@ def paginate_plants(request, selection):
 def create_app(test_config=None):
     app = Flask(__name__)
     setup_db(app)
-    CORS(app, resources={r"/api/*": {'origins': '*'}})
+    CORS(app)
+    #CORS(app, resources={r"/api/*": {'origins': '*'}})
 
     @app.after_request
     def after_request(response):
@@ -86,7 +87,8 @@ def create_app(test_config=None):
                     plant.update()
                     return jsonify({
                         'success': True,
-                        'id': plant.id
+                        'id': plant.id,
+                        'primary_color':plant.primary_color
                     })
         except:
             abort(400)
@@ -98,33 +100,34 @@ def create_app(test_config=None):
         new_scientific_name = body.get('scientific_name', None)
         new_is_poisonous = body.get('is_poisonous', None)
         new_primary_color = body.get('primary_color', None)
+        new_state = body.get('state', None)
         search = body.get('search', None)
 
-        try:
-            if search:
-                plants = Plant.query.order_by(Plan.id).filter(
-                    Plan.name.ilike('%{}%'.format(search)))
-                current_plants = paginate_plants(request, plants)
-                return jsonify({
-                    'success': True,
-                    'plants': current_plants,
-                    'totals_plants': len(plants)
-                })
-            else:
-                plant = Plant(name=new_name, scientific_name=new_scientific_name,
-                            is_poisonous=new_is_poisonous, primary_color=new_primary_color)
-                plant.insert()
-                plants = Plant.query.order_by(Plant.id).all()
-                current_plants = paginate_plants(request, plants)
+        #try:
+        if search:
+            plants = Plant.query.order_by(Plan.id).filter(
+                Plan.name.ilike('%{}%'.format(search)))
+            current_plants = paginate_plants(request, plants)
+            return jsonify({
+                'success': True,
+                'plants': current_plants,
+                'totals_plants': len(plants)
+            })
+        else:
+            plant = Plant(name=new_name, scientific_name=new_scientific_name,
+                        is_poisonous=new_is_poisonous, primary_color=new_primary_color,state=new_state)
+            plant.insert()
+            plants = Plant.query.order_by(Plant.id).all()
+            current_plants = paginate_plants(request, plants)
 
-                return jsonify({
-                    'success': True,
-                    'created': plant.id,
-                    'plants': current_plants,
-                    'totals_plants': len(Plant.query.all())
-                })
-        except:
-            abort(422)
+            return jsonify({
+                'success': True,
+                'created': plant.id,
+                'plants': current_plants,
+                'totals_plants': len(Plant.query.all())
+            })
+        #except:
+            #abort(422)
     
     @app.errorhandler(404)
     def not_found(error):
@@ -145,5 +148,10 @@ def create_app(test_config=None):
     def server_error(error):
         return (jsonify({'success': False, 'error': 500,
                 'message': 'internal server error'}), 500)
+
+    @app.errorhandler(405)
+    def server_error(error):
+        return (jsonify({'success': False, 'error': 405,
+                'message': 'method not allowed'}), 405)
 
     return app

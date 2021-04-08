@@ -61,11 +61,12 @@ class Plant(db.Model):
 ###################################################################################################################
 
 
-    def __init__(self, name, scientific_name, is_poisonous, primary_color):
+    def __init__(self, name, scientific_name, is_poisonous, primary_color,state):
         self.name = name
         self.scientific_name = scientific_name
         self.is_poisonous = is_poisonous
         self.primary_color = primary_color
+        self.state=state
 
 
 ###################################################################################################################
@@ -100,6 +101,6 @@ class Plant(db.Model):
             'name': self.name,
             'scientific_name': self.scientific_name,
             'is_poisonous': self.is_poisonous,
-            'primary_color': self.primary_color
+            'primary_color': self.primary_color,
+            'state':self.state
         }
-    
