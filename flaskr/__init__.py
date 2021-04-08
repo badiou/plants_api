@@ -88,5 +88,38 @@ def create_app(test_config=None):
                     })
         except:
             abort(400)
-       
+    
+    @app.route('/plants',methods=['POST'])
+    def create_plant():
+        body=request.get_json()
+        new_name=body.get('name',None)
+        new_scientific_name=body.get('scientific_name',None)
+        new_is_poisonous=body.get('is_poisonous',None)
+        new_primary_color=body.get('primary_color',None)
+        search=body.get('search',None)
+
+        #try:
+        if search:
+            plants=Plant.query.order_by(Plan.id).filter(Plan.name.ilike('%{}%'.format(search)))
+            current_plants=paginate_plants(request,plants)
+            return jsonify({
+                'success':True,
+                'plants':current_plants,
+                'totals_plants':len(plants)
+            })
+        else:
+            plant=Plant(name=new_name,scientific_name=new_scientific_name,is_poisonous=new_is_poisonous,primary_color=new_primary_color)
+            plant.insert()
+            plants=Plant.query.order_by(Plant.id).all()
+            current_plants=paginate_plants(request,plants)
+
+            return jsonify({
+                'success':True,
+                'created':plant.id,
+                'plants':current_plants,
+                'totals_plants':len(Plant.query.all())
+            })
+        #except:
+            #abort(422)
+   
     return app
