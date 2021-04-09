@@ -178,7 +178,7 @@ The API will return four error types when requests fail:
     "totals_plants": 54
 }
 
-. ## DELETE /plants(plant_id)
+. ## DELETE/plants (plant_id)
 
     GENERAL:
         Delete the plant of the given ID if it exists. Return the id of the deleted plant, success value, total of plants a
@@ -188,93 +188,93 @@ The API will return four error types when requests fail:
         SAMPLE: curl -X DELETE http://localhost:5000/plants/10
 
          "deleted": 10,
-{
-    "deleted": 10,
-    "plants": [
         {
-            "id": 1,
-            "is_poisonous": false,
-            "name": "Gnato",
-            "primary_color": "Blue",
-            "scientific_name": "Gnato Togo",
-            "state": "TOGO"
-        },
-        {
-            "id": 2,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 3,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 4,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 5,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 6,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 7,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 8,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 9,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 11,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
+        "deleted": 10,
+        "plants": [
+            {
+                "id": 1,
+                "is_poisonous": false,
+                "name": "Gnato",
+                "primary_color": "Blue",
+                "scientific_name": "Gnato Togo",
+                "state": "TOGO"
+            },
+            {
+                "id": 2,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 3,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 4,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 5,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 6,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 7,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 8,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 9,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 11,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            }
+            ],
+            "success": true,
+            "totals_plants": 53
         }
-    ],
-    "success": true,
-    "totals_plants": 53
-}
 
 . ##PATCH/plants(plant_id)
   GENERAL:
