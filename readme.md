@@ -1,4 +1,4 @@
-# Full Stack Trivia API Backend
+# Full Stack PLANTS API
 
 ## Getting Started
 
@@ -84,7 +84,7 @@ The API will return four error types when requests fail:
 . ## GET/plants
 
     GENERAL:
-        This endpoints returns a list of category object, success value, total number of the categories. 
+        This endpoints returns a list of plant object, success value, total number of the plants. 
     
         
     SAMPLE: curl http://localhost:5000/plants
