@@ -274,13 +274,26 @@ The API will return four error types when requests fail:
     "totals_plants": 53
 }
 
+. ##PATCH/plants(plant_id)
+  GENERAL:
+  This endpoint is used to update a primary_color of plant
+  We return a plant which we update
+
+  SAMPLE.....For Patch
+  curl -X PATCH http://localhost:5000/plants/1 -H "Content-Type:application/json" -d "{"primary_color":"yellow"}"
+    {
+      "id": 1,
+      "primary_color": "yellow",
+      "success": true
+    }
+
 . ## POST/plants
 
     GENERAL:    
     This endpoint is used to create a new plant or to search for a plant in relation to the terms contained in the plants.
     When the searchTerm parameter is passed from the json, the endpoint performs the search. Otherwise, it is the creation of a new question.
     In the case of the creation of a new question:
-    We return the ID of the new plant created, the question that was created, the list of questions and the number of questions.
+    We return the ID of the new plant created, the plant that was created, the list of plant and the number of plants.
 
     SAMPLE.....For Search:
     curl -X POST http://localhost:5000/plants -H "Content-Type:application/json" -d "{"search":"title"}"
