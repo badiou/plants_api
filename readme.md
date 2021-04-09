@@ -82,7 +82,7 @@ The API will return four error types when requests fail:
         Results are paginated in groups of 10. include a request argument to choose page number, starting from 1.
 
         SAMPLE: curl http://localhost:5000/plants
-```
+
     {
     "plants": [
         {
@@ -169,7 +169,7 @@ The API will return four error types when requests fail:
     "success": true,
     "totals_plants": 54
 }
-```
+
             
 ## DELETE /plants(plant_id)
 
@@ -179,7 +179,7 @@ The API will return four error types when requests fail:
         Results are paginated in groups of 10. include a request argument to choose page number, starting from 1.
 
         SAMPLE: curl -X DELETE http://localhost:5000/plants/3?page=2
-```
+
 {
     "deleted": 3,
     "plants": [
@@ -267,7 +267,7 @@ The API will return four error types when requests fail:
     "success": true,
     "totals_plants": 52
 }
-```
+
 ## POST plants
 
     GENERAL:    
@@ -282,7 +282,7 @@ The API will return four error types when requests fail:
     SAMPLE.....For create
 
     curl -X POST http://localhost:5000/plants -H "Content-Type:application/json" -d "{"primary_color":"yellow","is_poisonous":true,"scientific_name":"yellow","name":"Salade","state":"Gondwana"}"
-``` {
+{
     "created": 60,
     "plants": [
         {
@@ -369,7 +369,7 @@ The API will return four error types when requests fail:
     "success": true,
     "totals_plants": 54
 }
-```
+
 
 ## GET plants(plant_id)
     GENERAL:    
@@ -377,7 +377,7 @@ The API will return four error types when requests fail:
 
         SAMPLE
         curl http://localhost:5000/plants/1?page=1
-```
+
 {
     "plant": {
         "id": 45,
@@ -389,7 +389,7 @@ The API will return four error types when requests fail:
     },
     "success": true
 }
-```
+
 ## Testing
 To run the tests, run
 ```
