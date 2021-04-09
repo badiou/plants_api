@@ -15,10 +15,12 @@ We recommend working within a virtual environment whenever using Python for proj
 
 #### PIP Dependencies
 
-Once you have your virtual environment setup and running, install dependencies by naviging to the `/backend` directory and running:
+Once you have your virtual environment setup and running, install dependencies by naviging to the `/plants_api` directory and running:
 
 ```bash
-pip install -r requirements.txt or pip3 install -r requirements.txt
+pip install -r requirements.txt
+or
+pip3 install -r requirements.txt
 ```
 
 This will install all of the required packages we selected within the `requirements.txt` file.
@@ -32,9 +34,9 @@ This will install all of the required packages we selected within the `requireme
 - [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#) is the extension we'll use to handle cross origin requests from our frontend server. 
 
 ## Database Setup
-With Postgres running, restore a database using the plants_database.psql file provided. From the backend folder in terminal run:
+With Postgres running, restore a database using the plants_database.sql file provided. From the backend folder in terminal run:
 ```bash
-psql plants_database < plants_database.psql
+psql plants_database < plants_database.sql
 ```
 
 ## Running the server
