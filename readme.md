@@ -74,7 +74,7 @@ The API will return four error types when requests fail:
 
 ## Endpoints
 
-. ## GET/plants
+## GET/plants
 
     GENERAL:
         This endpoint returns a list of the plants object, sucess value, total number of plants.
@@ -82,7 +82,7 @@ The API will return four error types when requests fail:
         Results are paginated in groups of 10. include a request argument to choose page number, starting from 1.
 
         SAMPLE: curl http://localhost:5000/plants
-
+```
     {
     "plants": [
         {
@@ -169,9 +169,9 @@ The API will return four error types when requests fail:
     "success": true,
     "totals_plants": 54
 }
+```
             
-
-. ## DELETE /plants(plant_id)
+## DELETE /plants(plant_id)
 
     GENERAL:
         Delete the plant of the given ID if it exists. Return the id of the deleted plant, success value, total of plants 
@@ -179,6 +179,7 @@ The API will return four error types when requests fail:
         Results are paginated in groups of 10. include a request argument to choose page number, starting from 1.
 
         SAMPLE: curl -X DELETE http://localhost:5000/plants/3?page=2
+```
 {
     "deleted": 3,
     "plants": [
@@ -266,8 +267,8 @@ The API will return four error types when requests fail:
     "success": true,
     "totals_plants": 52
 }
-
-. ## POST/plants
+```
+## POST plants
 
     GENERAL:    
     This endpoint is used to create a new plant or to search for a plant in relation to the terms contained in the plant.
@@ -281,7 +282,7 @@ The API will return four error types when requests fail:
     SAMPLE.....For create
 
     curl -X POST http://localhost:5000/plants -H "Content-Type:application/json" -d "{"primary_color":"yellow","is_poisonous":true,"scientific_name":"yellow","name":"Salade","state":"Gondwana"}"
-{
+``` {
     "created": 60,
     "plants": [
         {
@@ -368,13 +369,15 @@ The API will return four error types when requests fail:
     "success": true,
     "totals_plants": 54
 }
-. ## GET plants(plant_id)
+```
 
+## GET plants(plant_id)
     GENERAL:    
         Returns the list of plants in the category equal to id. List of plants is paginated (10 per page),
 
         SAMPLE
         curl http://localhost:5000/plants/1?page=1
+```
 {
     "plant": {
         "id": 45,
@@ -386,6 +389,7 @@ The API will return four error types when requests fail:
     },
     "success": true
 }
+```
 ## Testing
 To run the tests, run
 ```
