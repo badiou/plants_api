@@ -388,7 +388,8 @@ The API will return four error types when requests fail:
 }
 ## Testing
 To run the tests, run
-dropdb plants_database_test
+```dropdb plants_database_test
 createdb plants_database_test
 psql plants_database_test < plants_database_test.sql
 python test_flaskr.py
+```
