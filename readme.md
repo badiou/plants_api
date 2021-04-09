@@ -1,10 +1,11 @@
-# Full Stack Plant API Backend
+# Full Stack PLANTS API
 
 ## Getting Started
 
 ### Installing Dependencies
 
-#### Python 3.8
+#### Python 3.8.5
+#### pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)
 
 Follow instructions to install the latest version of python for your platform in the [python docs](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
 
@@ -18,6 +19,8 @@ Once you have your virtual environment setup and running, install dependencies b
 
 ```bash
 pip install -r requirements.txt
+or
+pip3 install -r requirements.txt
 ```
 
 This will install all of the required packages we selected within the `requirements.txt` file.
@@ -31,7 +34,7 @@ This will install all of the required packages we selected within the `requireme
 - [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#) is the extension we'll use to handle cross origin requests from our frontend server. 
 
 ## Database Setup
-With Postgres running, restore a database using the plants_database.sql file provided. From the plants_api folder in terminal run:
+With Postgres running, restore a database using the plants_database.sql file provided. From the backend folder in terminal run:
 ```bash
 psql plants_database < plants_database.sql
 ```
@@ -40,11 +43,18 @@ psql plants_database < plants_database.sql
 
 From within the `plants_api` directory first ensure you are working using your created virtual environment.
 
-To run the server, execute:
+To run the server on Linux or Mac, execute:
 
 ```bash
 export FLASK_APP=flaskr
 export FLASK_ENV=development
+flask run
+```
+To run the server on Windows, execute:
+
+```bash
+set FLASK_APP=flaskr
+set FLASK_ENV=development
 flask run
 ```
 
@@ -73,23 +83,21 @@ The API will return four error types when requests fail:
 . 404: Not found
 
 ## Endpoints
-
-## GET/plants
+. ## GET/plants
 
     GENERAL:
-        This endpoint returns a list of the plants object, sucess value, total number of plants.
+        This endpoints returns a list of plant object, success value, total number of the plants. 
+    
+        
+    SAMPLE: curl http://localhost:5000/plants
 
-        Results are paginated in groups of 10. include a request argument to choose page number, starting from 1.
-
-        SAMPLE: curl http://localhost:5000/plants
-
-    {
+        {
     "plants": [
         {
             "id": 1,
             "is_poisonous": false,
             "name": "Gnato",
-            "primary_color": "yellow",
+            "primary_color": "Blue",
             "scientific_name": "Gnato Togo",
             "state": "TOGO"
         },
@@ -97,7 +105,229 @@ The API will return four error types when requests fail:
             "id": 2,
             "is_poisonous": false,
             "name": "yébéssé",
-            "primary_color": "yellow",
+            "primary_color": "Red",
+            "scientific_name": "Pimento",
+            "state": "TOGO"
+        },
+        {
+            "id": 3,
+            "is_poisonous": false,
+            "name": "yébéssé",
+            "primary_color": "Red",
+            "scientific_name": "Pimento",
+            "state": "TOGO"
+        },
+        {
+            "id": 4,
+            "is_poisonous": false,
+            "name": "yébéssé",
+            "primary_color": "Red",
+            "scientific_name": "Pimento",
+            "state": "TOGO"
+        },
+        {
+            "id": 5,
+            "is_poisonous": false,
+            "name": "yébéssé",
+            "primary_color": "Red",
+            "scientific_name": "Pimento",
+            "state": "TOGO"
+        },
+        {
+            "id": 6,
+            "is_poisonous": false,
+            "name": "yébéssé",
+            "primary_color": "Red",
+            "scientific_name": "Pimento",
+            "state": "TOGO"
+        },
+        {
+            "id": 7,
+            "is_poisonous": false,
+            "name": "yébéssé",
+            "primary_color": "Red",
+            "scientific_name": "Pimento",
+            "state": "TOGO"
+        },
+        {
+            "id": 8,
+            "is_poisonous": false,
+            "name": "yébéssé",
+            "primary_color": "Red",
+            "scientific_name": "Pimento",
+            "state": "TOGO"
+        },
+        {
+            "id": 9,
+            "is_poisonous": false,
+            "name": "yébéssé",
+            "primary_color": "Red",
+            "scientific_name": "Pimento",
+            "state": "TOGO"
+        },
+        {
+            "id": 10,
+            "is_poisonous": false,
+            "name": "yébéssé",
+            "primary_color": "Red",
+            "scientific_name": "Pimento",
+            "state": "TOGO"
+        }
+    ],
+    "success": true,
+    "totals_plants": 54
+}
+```
+
+. ## DELETE/plants (plant_id)
+
+    GENERAL:
+        Delete the plant of the given ID if it exists. Return the id of the deleted plant, success value, total of plants a
+
+        Results are paginated in groups of 10. include a request argument to choose page number, starting from 1.
+
+        SAMPLE: curl -X DELETE http://localhost:5000/plants/10
+```
+         "deleted": 10,
+        {
+        "deleted": 10,
+        "plants": [
+            {
+                "id": 1,
+                "is_poisonous": false,
+                "name": "Gnato",
+                "primary_color": "Blue",
+                "scientific_name": "Gnato Togo",
+                "state": "TOGO"
+            },
+            {
+                "id": 2,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 3,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 4,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 5,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 6,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 7,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 8,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 9,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            },
+            {
+                "id": 11,
+                "is_poisonous": false,
+                "name": "yébéssé",
+                "primary_color": "Red",
+                "scientific_name": "Pimento",
+                "state": "TOGO"
+            }
+            ],
+            "success": true,
+            "totals_plants": 53
+        }
+```
+. ##PATCH/plants(plant_id)
+  GENERAL:
+  This endpoint is used to update a primary_color of plant
+  We return a plant which we update
+
+  SAMPLE.....For Patch
+  ``` curl -X PATCH http://localhost:5000/plants/1 -H "Content-Type:application/json" -d "{"primary_color":"yellow"}"
+  ```
+  ```
+    {
+      "id": 1,
+      "primary_color": "yellow",
+      "success": true
+    }
+    ```
+
+. ## POST/plants
+
+    GENERAL:    
+    This endpoint is used to create a new plant or to search for a plant in relation to the terms contained in the plants.
+    When the searchTerm parameter is passed from the json, the endpoint performs the search. Otherwise, it is the creation of a new question.
+    In the case of the creation of a new question:
+    We return the ID of the new plant created, the plant that was created, the list of plant and the number of plants.
+
+    SAMPLE.....For Search:
+    ```
+    curl -X POST http://localhost:5000/plants -H "Content-Type:application/json" -d "{"search":"title"}"
+    ```
+
+                
+
+    SAMPLE.....For create
+
+    curl -X POST http://localhost:5000/plants -H "Content-Type:application/json" -d "{"name":"Gnato","scientific_name":"Pimento","is_poisonous":false,"state":"Togo","primary_color="Blue"}"
+```
+    {
+    "created": 58,
+    "plants": [
+        {
+            "id": 1,
+            "is_poisonous": false,
+            "name": "Gnato",
+            "primary_color": "Blue",
+            "scientific_name": "Gnato Togo",
+            "state": "TOGO"
+        },
+        {
+            "id": 2,
+            "is_poisonous": false,
+            "name": "yébéssé",
+            "primary_color": "Red",
             "scientific_name": "Pimento",
             "state": "TOGO"
         },
@@ -169,232 +399,14 @@ The API will return four error types when requests fail:
     "success": true,
     "totals_plants": 54
 }
+```      
 
-            
-## DELETE /plants(plant_id)
-
-    GENERAL:
-        Delete the plant of the given ID if it exists. Return the id of the deleted plant, success value, total of plants 
-
-        Results are paginated in groups of 10. include a request argument to choose page number, starting from 1.
-
-        SAMPLE: curl -X DELETE http://localhost:5000/plants/3?page=2
-
-{
-    "deleted": 3,
-    "plants": [
-        {
-            "id": 14,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 15,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 16,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 17,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 18,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 19,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 20,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 21,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 22,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 23,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        }
-    ],
-    "success": true,
-    "totals_plants": 52
-}
-
-## POST plants
-
-    GENERAL:    
-    This endpoint is used to create a new plant or to search for a plant in relation to the terms contained in the plant.
-    When the search parameter is passed from the json, the endpoint performs the search. Otherwise, it is the creation of a new plant.
-    In the case of the creation of a new plant:
-    We return the ID of the new plant created, the plant that was created, the list of plants and the number of plants.
-
-    SAMPLE.....For Search:
-    curl -X POST http://localhost:5000/plants -H "Content-Type:application/json" -d "{"search":"title"}"
-
-    SAMPLE.....For create
-
-    curl -X POST http://localhost:5000/plants -H "Content-Type:application/json" -d "{"primary_color":"yellow","is_poisonous":true,"scientific_name":"yellow","name":"Salade","state":"Gondwana"}"
-{
-    "created": 60,
-    "plants": [
-        {
-            "id": 1,
-            "is_poisonous": false,
-            "name": "Gnato",
-            "primary_color": "yellow",
-            "scientific_name": "Gnato Togo",
-            "state": "TOGO"
-        },
-        {
-            "id": 2,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "yellow",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 4,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 5,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 6,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 7,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 8,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 9,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 12,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        },
-        {
-            "id": 13,
-            "is_poisonous": false,
-            "name": "yébéssé",
-            "primary_color": "Red",
-            "scientific_name": "Pimento",
-            "state": "TOGO"
-        }
-    ],
-    "success": true,
-    "totals_plants": 54
-}
-
-
-## GET plants(plant_id)
-    GENERAL:    
-        Returns the list of plants in the category equal to id. List of plants is paginated (10 per page),
-
-        SAMPLE
-        curl http://localhost:5000/plants/1?page=1
-
-{
-    "plant": {
-        "id": 45,
-        "is_poisonous": false,
-        "name": "yébéssé",
-        "primary_color": "Red",
-        "scientific_name": "Pimento",
-        "state": "TOGO"
-    },
-    "success": true
-}
 
 ## Testing
 To run the tests, run
 ```
-dropdb plants_database_test
-createdb plants_database_test
-psql plants_database_test < plants_database_test.sql
+dropdb plants_database
+createdb plants_database
+psql plants_database_test < plants_database.sql
 python test_flaskr.py
 ```
