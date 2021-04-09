@@ -88,10 +88,11 @@ The API will return four error types when requests fail:
     GENERAL:
         This endpoints returns a list of plant object, success value, total number of the plants. 
     
-        
+    ```    
     SAMPLE: curl http://localhost:5000/plants
-
-        {{
+    ```
+```
+        {
     "plants": [
         {
             "id": 1,
@@ -177,6 +178,7 @@ The API will return four error types when requests fail:
     "success": true,
     "totals_plants": 54
 }
+```
 
 . ## DELETE/plants (plant_id)
 
@@ -186,7 +188,7 @@ The API will return four error types when requests fail:
         Results are paginated in groups of 10. include a request argument to choose page number, starting from 1.
 
         SAMPLE: curl -X DELETE http://localhost:5000/plants/10
-
+```
          "deleted": 10,
         {
         "deleted": 10,
@@ -275,19 +277,22 @@ The API will return four error types when requests fail:
             "success": true,
             "totals_plants": 53
         }
-
+```
 . ##PATCH/plants(plant_id)
   GENERAL:
   This endpoint is used to update a primary_color of plant
   We return a plant which we update
 
   SAMPLE.....For Patch
-  curl -X PATCH http://localhost:5000/plants/1 -H "Content-Type:application/json" -d "{"primary_color":"yellow"}"
+  ``` curl -X PATCH http://localhost:5000/plants/1 -H "Content-Type:application/json" -d "{"primary_color":"yellow"}"
+  ```
+  ```
     {
       "id": 1,
       "primary_color": "yellow",
       "success": true
     }
+    ```
 
 . ## POST/plants
 
@@ -298,14 +303,16 @@ The API will return four error types when requests fail:
     We return the ID of the new plant created, the plant that was created, the list of plant and the number of plants.
 
     SAMPLE.....For Search:
+    ```
     curl -X POST http://localhost:5000/plants -H "Content-Type:application/json" -d "{"search":"title"}"
+    ```
 
                 
 
     SAMPLE.....For create
 
     curl -X POST http://localhost:5000/plants -H "Content-Type:application/json" -d "{"name":"Gnato","scientific_name":"Pimento","is_poisonous":false,"state":"Togo","primary_color="Blue"}"
-
+```
     {
     "created": 58,
     "plants": [
@@ -392,7 +399,8 @@ The API will return four error types when requests fail:
     ],
     "success": true,
     "totals_plants": 54
-}        
+}
+```      
 
 
 ## Testing
